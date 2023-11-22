@@ -6,7 +6,11 @@ const Food = function () {
 
     return (<>
         <TypeOfMeal title="завтрак" />
+        <TypeOfMeal title="обед" />
+        <TypeOfMeal title="ужин" />
+        <TypeOfMeal title="другое" />
         </>
+        
 
         )
 }

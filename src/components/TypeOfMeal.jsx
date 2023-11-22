@@ -29,7 +29,7 @@ function TypeOfMeal(props) {
     }
     return (<>
            <div id='main'>
-            {mode == 'main' ? (<div className="form" >
+            {mode == 'main' ? (<div >
                 <h1>{props.title}</h1>
                 <button onClick={showElements}>добавить</button>
                 <ul>

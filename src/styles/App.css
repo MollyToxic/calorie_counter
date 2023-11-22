@@ -45,6 +45,11 @@ a{
   width: 200px;
   z-index: 1;
 }
+.graf{
+  border: solid 1px;
+  width: 600px;
+  height: 600px;
+}
 /* .form_input{
 
 }

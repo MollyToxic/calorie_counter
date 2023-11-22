@@ -4,7 +4,7 @@ import Button from "../components/Button";
 const ReviewToday = function () {
     return (<div className="form">
         <Button title="Добавить блюдо" link="/food" />
-        <Button title="Добавить тренировку" link="/training" />
+        <Button title="Добавить тренировку" link="/traing" />
     </div>)
 }
 
