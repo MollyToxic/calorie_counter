@@ -6,7 +6,7 @@ const Main = function (){
         <Button title="Редактирование учётной записи" link=""/>
         <Button title="Корректировка рациона " link="" />
         <Button title="Обзор за..." link="" />
-        <Button title="Сегодня" link="" />
+        <Button title="Сегодня" link="/review_today" />
     </div>)
 }
 
