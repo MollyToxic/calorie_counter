@@ -6,6 +6,7 @@ import Training from "./pages/Training";
 import ReviewToday from "./pages/ReviewToday";
 import Food from "./pages/Food";
 import Registration from "./pages/Registration";
+import Report from "./pages/Report";
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
       <Route path="/training" element={<Training/>}/>
       <Route path="/food" element={<Food />} />
       <Route path="/registration" element={<Registration />} />
-
+      <Route path="/report" element={<Report />} />
       {/* <Route path="*" element={NotifoundPage}/> */}
     </Routes>
   )
