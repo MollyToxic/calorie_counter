@@ -8,7 +8,7 @@ const Entrance = function () {
   return (
     <div className="form">
       <Input inputValue={inputValueLogin} onChange={setinputValueLogin} title="логин" type="text"/>
-      <Input inputValue={inputValuePassword} onChange={setinputValuePassword} title="пароль" type="password" />
+      <Input inputValue={inputValuePassword} onChange={setinputValuePassword}  title="пароль" type="password" />
       <Button  title="войти" link="/main"/>
       <Button title="зарегистрироваться" link="/registration"/>
       <></>
