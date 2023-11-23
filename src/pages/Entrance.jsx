@@ -7,11 +7,11 @@ const Entrance = function () {
   const [inputValuePassword, setinputValuePassword] = useState('');
   return (
     <div className="form">
-      <Input inputValue={inputValueLogin} onChange={setinputValueLogin} title="логин" type="text"/>
-      <Input inputValue={inputValuePassword} onChange={setinputValuePassword}  title="пароль" type="password" />
-      <Button  title="войти" link="/main"/>
-      <Button title="зарегистрироваться" link="/registration"/>
-      <></>
+         <Input inputValue={inputValueLogin} onChange={setinputValueLogin} title="Логин" type="text" />
+      <Input inputValue={inputValuePassword} onChange={setinputValuePassword} title="Пароль" type="password" />
+      <div className="btn_flex">      <Button title="войти" link="/main" />
+        <Button title="зарегистрироваться" link="/registration" /></div>
+
     </div>
   )
 }

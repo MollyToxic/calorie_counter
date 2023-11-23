@@ -8,19 +8,22 @@ function Input(props) {
     props.onChange('')
   }
   return (
-    <>
-      <input autoFocus
+    <div className="form_flex"><div >     
+      <label className="form_title">
+ 
+        {props.title}
+      </label>       <input autoFocus
         className="form_input"
         name="props.name"
         type={props.type}
         value={props.inputValue}
         onChange={onInputChange}>
-        </input>
-      <label className="form_title">       
-         {props.title}
-      </label>
-      <button onClick={inputReset}>очистить</button>
-    </>
+      </input>
+    </div>
+      <button onClick={inputReset} className="input_btn">X</button> 
+ 
+ 
+    </div>
   );
 };
 
