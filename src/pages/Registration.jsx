@@ -9,30 +9,56 @@ const Registration = function () {
     const [inputValueAge, setinputValueAge] = useState('');
     const [inputValueHeight, setinputValueHeight] = useState('');
     const [inputValueWeight, setinputValueWeight] = useState('');
-
-
+    const [inputValueLogin, setinputValueLogin] = useState('');
+    const [inputValuePassword, setinputValuePassword] = useState('');
 
     return (
-        <div >
-            <h1>Пол</h1>
-            <InputRadio inputValue={true} name="gender" title="Ж" type="radio" />
-            <InputRadio inputValue={false} name="gender" title="М" type="radio" />
-            <Input inputValue={inputValueAge} onChange={setinputValueAge} title="Возраст" type="text" />
-            <Input inputValue={inputValueHeight} onChange={setinputValueHeight} title="Рост" type="text" />
-            <Input inputValue={inputValueWeight} onChange={setinputValueWeight} title="Вес" type="text" />
-            <h2>Физическая активность</h2>
-            <ul>
-                <li><InputRadio inputValue={false} name="physical_activity" title="Очень низкая" type="radio" />
-                    <p>Минимальная</p></li>
-                <li><InputRadio inputValue={true} name="physical_activity" title="Низкая" type="radio" />
-                    <p>Сидячяя работа и отсутствие физических нагрузок</p></li>
-                <li>            <InputRadio inputValue={false} name="physical_activity" title="Средняя" type="radio" />
-                    <p>Редкие, нерегулярные тренировка,активность в быту</p></li>
-                <li><InputRadio inputValue={false} name="physical_activity" title="Высокая" type="radio" />
-                    <p>Тренировки 3-5 паз в неделю</p>
-                </li>
-                <li><InputRadio inputValue={false} name="physical_activity" title="Очень Высокая" type="radio" /><p>Тренировки больше 4-5 раз в неделю</p></li>
-            </ul>
+        <div className="registration">
+            <div className="border">
+                <div className="container_physical_data">
+                    <div>
+                        <Input inputValue={inputValueAge} onChange={setinputValueAge} title="Возраст" type="text" />
+                        <Input inputValue={inputValueHeight} onChange={setinputValueHeight} title="Рост" type="text" />
+                        <Input inputValue={inputValueWeight} onChange={setinputValueWeight} title="Вес" type="text" />
+                    </div>
+                    <div>
+                        <Input inputValue={inputValueLogin} onChange={setinputValueLogin} title="Логин" type="text" />
+                        <Input inputValue={inputValuePassword} onChange={setinputValuePassword} title="Пароль" type="password" />
+                    </div>
+                </div>
+            </div>
+
+            <div className="border">
+                <div className="container_other_info">
+                    <div>
+                        <p >Физическая активность</p>
+                        <ul>
+                            <li><InputRadio inputValue={false} name_radio="physical_activity" title="Очень низкая (минимальная)" type="radio" />
+                            </li>
+                            <li><InputRadio inputValue={true} name_radio="physical_activity"
+                                title="Низкая (сидячяя работа и отсутствие физических нагрузок)" type="radio" />
+                            </li>
+                            <li><InputRadio inputValue={false} name_radio="physical_activity" title="Средняя (редкие, нерегулярные тренировка,активность в быту)" type="radio" />
+                            </li>
+                            <li><InputRadio inputValue={false} name_radio="physical_activity" title="Высокая (тренировки 3-5 раз в неделю)" type="radio" />
+                            </li>
+                            <li><InputRadio inputValue={false} name_radio="physical_activity" title="Очень высокая (Тренировки больше 4-5 раз в неделю)" type="radio" />
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p>Пол</p>
+                        <div className="container_gender">
+                            <InputRadio inputValue={true} name_radio="gender" title="Ж" type="radio" />
+                            <InputRadio inputValue={false} name_radio="gender" title="М" type="radio" />
+                        </div>
+
+                    </div>
+                    <Button title="зарегистрироваться" link="/main" />
+                </div>
+            </div>
+ 
+
         </div>
     )
 }

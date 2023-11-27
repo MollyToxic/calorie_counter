@@ -3,10 +3,10 @@ import "../styles/App.css";
 function InputRadio(props) {
     return (
         <>
-            <label className="form_title">
+            <label className="form_title_gender">
                 <input 
-                    className="form_input"
-                    name="props.name"
+                    className="form_input_gender"
+                    name={props.name_radio}
                     type={props.type}
                     value={props.inputValue}
                     onClick={()=>!props.inputValue}
