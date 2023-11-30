@@ -16,6 +16,8 @@ function Input(props) {
       className= "form_input"
         name={props.name}
       type={props.type}
+      min={props.min}
+      max={props.max}
       value={props.inputValue}
       onChange={onInputChange}>
     </input>

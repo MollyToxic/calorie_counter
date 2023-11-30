@@ -4,7 +4,7 @@ import "../styles/App.css";
 
 const Button = function(props){
   return (<div >
-    <Link to={props.link}>  <button  type="submit" className="link_button">{props.title}</button> </Link>      
+    <Link to={props.link}>  <button onClick={props.click} type="submit" className="link_button">{props.title}</button> </Link>      
 </div>
 
     );
