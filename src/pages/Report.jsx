@@ -5,25 +5,30 @@ import Scchedule from "../components/Schedule";
 
 const Main = function () {
     return (<div className="graf">
-        <h1>Текущая неделя</h1>
+        <div>   
+            <button className="left_btn"></button>     
+            <p>Текущая неделя</p>
+            <button className="right_btn"></button>
+        </div>
+
         <Scchedule data={[
             {
                 "дни недели": "Пн",
                 "завтрак": 500,
-                "hot dogColor": "hsl(96, 70%, 50%)",
+                // "hot dogColor": "hsl(96, 70%, 50%)",
                 "обед": 686,
-                "burgerColor": "hsl(27, 70%, 50%)",
+                // "burgerColor": "hsl(27, 70%, 50%)",
                 "ужин": 377,
-                "sandwichColor": "hsl(10, 70%, 50%)",
+                // "sandwichColor": "hsl(10, 70%, 50%)",
             },
             {
                 "дни недели": "Вт",
                 "завтрак": 478,
-                "hot dogColor": "hsl(256, 70%, 50%)",
+                // "hot dogColor": "hsl(256, 70%, 50%)",
                 "обед": 769,
-                "burgerColor": "hsl(121, 70%, 50%)",
+                // "burgerColor": "hsl(121, 70%, 50%)",
                 "ужин": 415,
-                "sandwichColor": "hsl(10, 70%, 50%)",
+                // "sandwichColor": "hsl(10, 70%, 50%)",
             },
             {
                 "дни недели": "Ср",

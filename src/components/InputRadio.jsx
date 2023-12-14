@@ -16,7 +16,7 @@ function InputRadio(props) {
                     type={props.type}
                     value={props.inputRadioValueDesired}
                     onChange={onInputChange}
-                    checked={props.inputRadioValue === props.inputRadioValueDesire ? true : false}
+                    checked={props.inputRadioValue === props.inputRadioValueDesired ? true : false}
                 ></input>
                 {props.title}
             </label>

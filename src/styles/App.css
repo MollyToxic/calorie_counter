@@ -10,6 +10,7 @@ body{
   align-items: center;
   height: 100vh;
   font-size: 18px;
+  background-color: rgb(197, 214, 245);
   /* font-family: 'Times New Roman', Times, serif; */
 }
 ul { 
@@ -26,9 +27,11 @@ ul {
   background-color: #fffbfb;
   border-radius: 10px;
   box-shadow: 0 4px 16px #ccc;
-  z-index: -1;
 }
 .form{
+  background-color: #fffbfb;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px #ccc;
   display: flex;
   width: 530px;
   height: 450px;
@@ -121,7 +124,6 @@ ul {
   flex-direction: row;
   /* column-gap: 10%; */
   justify-content: space-around;
-  z-index: -1;
 }
 
 .container_physical_data{
@@ -151,12 +153,33 @@ ul {
 
 /* остальные стили */
 .graf{
+  background-color: #fffbfb;
   border: solid 1px;
   width: 600px;
   height: 600px;
 }
+/* .main{
+  background-color: #fffbfb;
+} */
+#search{
+  margin: 30px;
+  /* width: 400px; */
+  max-height: 500px;
+  overflow: auto
+}
+.main{
+  margin: 30px;
+}
+li{
+  padding-bottom: 10px;
+}
 
+.the_nutritional_value{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 
-
-
-
+}
+.product{
+    border: 1px solid #5b5b5b;
+}

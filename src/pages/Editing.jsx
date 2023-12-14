@@ -8,10 +8,10 @@ const Editing = function () {
     const [inputValueHeight, setinputValueHeight] = useState('');
     return (
         <div className="form">
-            <h1>редактирование профиля</h1>
+            <p>Редактирование профиля</p>
             <Input inputValue={inputValueTarget} onChange={setinputValueTraget} title="Изменить текущую цель" type="text" />
-            <Input inputValue={inputValueWeight} onChange={setinputValueWeight} title="Изменить текущий вес" type="text" />
-            <Input inputValue={inputValueHeight} onChange={setinputValueHeight} title="Изменить текущий рост" type="text" />
+            <Input inputValue={inputValueWeight} onChange={setinputValueWeight} title="Изменить текущий вес" type="number" min="30" max="500" />
+            <Input inputValue={inputValueHeight} onChange={setinputValueHeight} title="Изменить текущий рост" type="number" min="130" max="220" />
         </div>
     )
 }
