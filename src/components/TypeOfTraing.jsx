@@ -27,39 +27,40 @@ function TypeOfTraing(props) {
         setTraingsUser(newTraingsUser)
     }
     return (<>
-        <div id='maint'>
-            {mode == 'maint' ? (<div className="form">
-                <h1>{props.title}</h1>
-                <button onClick={showElements}>добавить</button>
-                <ul>
-                    {traingsUser.map((item) => {
-                        return (
-                            <li key={item.id}>{item.title}
-                                <button onClick={() => deleteProductElement(item.id)}>Удалить тренировку</button>
-                            </li>)
-                    })}
-                </ul>
-            </div>
+        <div className="search-training" id='maint'>
+            {mode == 'maint' ? (
+            <>
+                <div>
+                    <button className="button" onClick={showElements}>Добавить тренировку</button>                   
+                </div>
+                <div>
+                    <ul>
+                        {traingsUser.map((item) => {
+                            return (
+                                <li key={item.id}>{item.title}
+                                    <button className="button-product" onClick={() => deleteProductElement(item.id)}>Удалить тренировку</button>
+                                </li>)
+                        })}
+                    </ul>
+                </div>
 
-            ) : ('')}
+            </>) : ('')}
 
         </div>
 
         <div id='searcht'>
             {mode == 'searcht' ? (
-                <div className="form">
+                <>
                     {/* <Input title='поиск' /> */}
                     <ul>
                         {traings.map((item) => {
                             return (<li key={item.id}>{item.title}
-                                <button onClick={() => addProductElement(item.id)}>Добавить тренировку</button>
+                                <button className="button-product" onClick={() => addProductElement(item.id)}>Добавить тренировку</button>
                             </li>)
                         })}
                     </ul>
-                    <button onClick={showMain}>обратно</button>
-                </div>
-            ) : ('')}
-
+                    <button className="previous" onClick={showMain}>&#129044;</button>
+                </>) : ('')}
         </div>
 
     </>

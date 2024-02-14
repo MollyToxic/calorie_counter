@@ -2,161 +2,299 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  list-style: none; 
+  font-size: 18px;
+  color:#5b5b5b;
+  font-family:Arial, Helvetica, sans-serif;
 }
+
 body{
-  background-color: #5b5b5b;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  font-size: 18px;
-  /* font-family: 'Times New Roman', Times, serif; */
+  background-image: linear-gradient(0deg,
+  rgb(246, 223, 255),rgb(235, 185, 255),rgb(246, 223, 255));  
 }
-ul { 
-  list-style: none; 
-  /* padding-bottom: 5%; */
-}
-/* стили для странички формы */
-.form_h1{
-  padding-bottom: 15px;
-  padding-left: 357px;
-  color:#5b5b5b;
-}
-.entrance{
-  background-color: #fffbfb;
-  border-radius: 10px;
-  box-shadow: 0 4px 16px #ccc;
-  z-index: -1;
-}
+
 .form{
+  background-color: #fffbfb;
+  border-radius: 1em;
+  box-shadow:  10px 10px 20px #5b5b5b52;
   display: flex;
-  width: 530px;
-  height: 450px;
-  padding: 32px;
+  min-width: 60%;
+  min-height: 28em;
+  padding: 2em;
   flex-direction: column;
-  justify-content: space-around;
-  gap:5%;
-
+  align-items: center;
+  justify-content: center;
+  gap:3em;
+  position: relative;
 }
-.form_conteiner_input{
-  display:flex;
-  flex-direction: column;
-  gap: 40px;
+.form > h1{
+  font-size: 1.7em;
+  position: absolute;
+  top:0.2em;
+  right: 0.5em;
 }
-.container_input{
-  z-index: 0;
-  display: flex;
-  flex-direction: row;  
+.form--training{
+  justify-content: start;
+  width: 25em;
+  align-items: start;
+  gap: 0;
 }
-.form_input{
-  font-size: 16px;
-  width: 85%;
+.form--training > h1 {
+  position: static;
+  padding-bottom: 0.56em;
+}
+.form--registration{
+  box-shadow: none;
   background-color: transparent;
-  border: none;
-  border-bottom: 1px solid  #5b5b5b ;
-  margin: 10px;
-  padding: 10px;
+  flex-direction: row;
+  align-items: stretch;
 }
-.form_input:focus{
-  border: none;
-  outline: 3px solid  rgb(242, 192, 255);
-}
-.form_title{
-  z-index: -1;
-  color: #5b5b5b;
-  transition: 0.3;
+.form >img{
+  height: 5.56em;
+  width: 11.1em;
 }
 
-.input_btn{
-  height: 30px;
-  width: 30px;
-  background-color: rgb(232, 123, 123);
-  color: rgba(255, 255, 255, 0.868);
+
+form{
+  min-width: 100%;
+  min-height: 100%;
+}
+.form--editing{
+  min-width: 30em;
+}
+.form--editing > div{
+  min-width: 100%;
+}
+.form--editing > h1{
+  position: static;
+}
+.form--main{
+  min-width: 20em;
+}
+
+.form--main > h1 {
+  position: static;
+}
+.form--review{
+  min-height: auto;
+}
+
+.input-box{
+  position: relative;
+  margin-bottom: 2em;
+}
+.input-box>label{
+  position: absolute;
+  background: #fff;
+  top:0;
+  left: 1.2em;
+}
+input{
+  width: 80%;
   border: none;
-  font-weight: 700;
+  border: 1px solid  #5b5b5b ;
+  border-radius: 0.5em;
+  margin: 0.56em;
+  padding: 0.56em;
+}
+
+input:focus{
+  border: 1px solid #212121;
 }
 
 .input_btn:hover{
   cursor: pointer;
 }
-.container_link_btn{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  column-gap: 50px;
-}
-.link_button{
-  color: #5b5b5b;
-  font-size: 16px;
-  height: 70px;
-  min-width: 180px;
-  width: 100%;
-  border: none;
-  background-color: rgb(242, 192, 255)
-}
 
-.link_button:hover{
+.input-radio-box{
+  padding-top: 0.56em;
+}
+input[type="radio"]{
+  display:none;
+}
+.custom-radio{
+  display: inline-block;
+  width: 0.83em;
+  height: 0.83em;
+  border: 1px solid #ccc;
+  border-radius: 50%;
   cursor: pointer;
+  margin: 0 0.27em;
 }
-/* стили для страницы создания профиля */
-.form_input_gender{
-    margin: 15px;
-    margin-left: 0;
+input[type="radio"]:checked + .custom-radio {
+  background-color: rgb(235, 185, 255);
+  border: 2px solid #5b5b5b;
 }
 
-.container_gender{
-  /* padding-top: 5%; */
-  font-size: 20px;
+.button{
+  height: 3.9em;
+  min-width: 12em;
+  border: none;
+  box-shadow: 0px 3px rgb(65, 65, 65);
+  background-color: rgb(242, 192, 255);
+  border-radius: 1em;
+  cursor: pointer
+}
+.button:active{
+  box-shadow: 0px 1px rgb(65, 65, 65);
+  transform: translateY(2px);
+}
+.form-container-input{
+  display:flex;
+  flex-direction: column;
+
+}
+.form-container-button{
+  width: 100%;
   display: flex;
   flex-direction: row;
-  gap: 15px;
-
-}
-/* .form_title_gender{
-
-} */
-.registration{
-  width: 1200px;
-  display: flex;
-  flex-direction: row;
-  /* column-gap: 10%; */
-  justify-content: space-around;
-  z-index: -1;
+  column-gap: 2.8em;
 }
 
-.container_physical_data{
-  margin: 50px 30px;
-  height: 80%;
+.form_physical-data{
+  min-width: 22.2em;
   display: flex;
+  flex-direction: column;
+  gap: 0.83em;
+}
 
+.form_other-info{
+  height: 100%;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* gap: 70px; */
 }
+
 .border{
-  border-radius: 10px;
-  box-shadow: 0 4px 16px #ccc;
-  border: 3px solid #5b5b5b;
+  border-radius: 1em;
+  box-shadow:  10px 10px 20px #5b5b5b52;
   background-color:#fffbfb;
-  z-index: 0;
+  padding: 1.1em;
+  position: relative;
+}
+.form_other-info_button{
+  display: flex;
+  justify-content: center;
+}
+.previous {
+  cursor: pointer;
+  font-size: 4.4em;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: -35px;
+  left: 8px;
+}
+.product-element{
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ border-top: 1px solid #5b5b5b;
+ padding: 0.56em 0; 
+ box-shadow: inset 0px 10px 10px rgba(235, 185, 255, 0.189);
+ width: 25em;
+}
+.product-element> div{
+  position: relative;
+}
+.product-info{
+  flex: 2;
+}
+.product-pfc{
+  flex:1;
 }
 
+.title-product{
+  font-weight: bold;
+}
+.button-product{
+  background-color: rgb(235, 185, 255);
+  border: 2px solid #5b5b5b;
+  border-radius: 1em;
+  font-size: 0.8em;
+  padding: 5px;
+  color: #212121;
+  cursor: pointer;
+  margin-top: 0.56em;
+}
+.button-delete{
+  position: absolute;
+  top: -42px;
+  right: -160px;
+  font-weight: 700;
+  font-size: 2.67em;
+  border: none;
+  background: transparent;
+  color: rgb(235, 185, 255);
+  cursor: pointer;
+}
+.graf{
+  background-color: #fffbfb;
+  border: solid 1px;
+  width: 33.33em;
+  height: 33.33em;
+}
 
-.container_other_info{
-  margin: 50px 30px;
+#search{
+  margin: 1.39em 0.56em;
+  max-height: 27.78em;
+  overflow-y: scroll;
+}
+.food-today{
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  justify-content: space-between;
+  min-height: 25em;
+  min-width: 26.67em;
+  background-color: #fffbfb;
+  border-radius: 1em;
 }
-
-/* остальные стили */
-.graf{
-  border: solid 1px;
-  width: 600px;
-  height: 600px;
+.main > h1 {
+  padding-bottom: 0.56em;
 }
-
-
-
-
-
+#search::-webkit-scrollbar{
+    width: 0.83em;
+    background-color: transparent;
+}
+#search::-webkit-scrollbar-thumb{
+  background-color: rgb(235, 185, 255);
+  min-height: 5.56em;
+  border: 2px solid #5b5b5b;
+  border-radius: 1em;
+}
+.main_button{
+  margin-top: -0.56em;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.button-1{
+  flex: 2;
+}
+.button-2{
+  flex: 1;
+}
+.main{
+  padding: 0.56em 0.83em;
+}
+li{
+  padding-bottom: 0.56em;
+}
+.the_nutritional_value{
+  display: flex;
+  flex-direction: row;
+  gap: 1.11em;
+}
+.search-training > div{
+  padding-bottom: 2em;
+  /* width: 100%;
+  min-height: 14em;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; */
+}

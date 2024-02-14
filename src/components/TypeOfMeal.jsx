@@ -1,71 +1,81 @@
-import React, { useState } from "react";
 import "../styles/App.css";
-import Input from "./Input";
-
 
 function TypeOfMeal(props) {
-    const [products, setProducts] = useState([{ title: 'клубника', id: 1, }, { title: 'вишня', id: 2, }, { title: 'яблоко', id: 3 }]);
-    const [productsUser, setProductsUser] = useState([]);
-    const [mode, setMode] = useState('main')
-
-    function showElements() {
-        document.getElementById('main').style.display = "none"
-        document.getElementById('search').style.display = "block"
-        setMode('search')
-    }
-    function showMain(){
-        document.getElementById('search').style.display = "none"
-        document.getElementById('main').style.display = "block"
-        setMode('main')
-    }
+    
     function deleteProductElement(id) {
-        const newProductsUser = productsUser.filter((item) => id != item.id)
-        setProductsUser(newProductsUser)
+        const newProduct = props.productsUser.filter((item) => id != item.id)
+        props.setProductsUser(newProduct);
+         localStorage.setItem(`${props.local}`, JSON.stringify(newProduct));
+    }
+    
+    function deleteDishElement(id){
+        const newDish = props.dishUser.filter((item) => id != item.id)
+        props.setDishUser(newDish);
+         localStorage.setItem(`${props.localDish}`, JSON.stringify(newDish));
     }
 
-    function addProductElement(id) {
-        const newProductsUser = products.filter((item) => id == item.id)
-        setProductsUser(newProductsUser)
+    function showProducts() {
+        props.setMode(props.choice)
     }
-    return (<>
-           <div id='main'>
-            {mode == 'main' ? (<div >
+
+    function showDish() {
+        props.setMode(props.choiceD)
+    }
+
+    return (
+        <div className="main">
                 <h1>{props.title}</h1>
-                <button onClick={showElements}>добавить</button>
-                <ul>
-                    {productsUser.map((item) => {
-                        return (
-                            <li key={item.id}>{item.title}
-                                <button onClick={() => deleteProductElement(item.id)}>Удалить продукт</button>
-                            </li>)
-                    })}
-                </ul>
-            </div>
+                    <ul>{
+                        props.productsUser?.map((el) => {
+                            return (
+                            <li key={el.id}>
+                                <div className="product-element">
+                                    <div className="product-info">
+                                        <p className="title-product">{el.title}</p>
+                                        <p>калории - {el.calories}</p>
+                                        <button className="button-delete" onClick={() => deleteProductElement(el.id)}>x</button>
+                                    </div>
+                                    <div className="product-pfc">
+                                        <p>белки - {el.proteins}</p>
+                                        <p>жиры - {el.fats}</p>
+                                        <p>углеводы - {el.carbohydrates}</p>
+                                    </div>
 
-            ) : ('')}
-
-            </div>
- 
-        <div id = 'search'>
-            {mode == 'search' ? (
-                <div className="form">
-                    {/* <Input title='поиск' /> */}
-                    <ul>
-                        {products.map((item) => {
-                            return (<li key={item.id}>{item.title}
-                                <button onClick={() => addProductElement(item.id)}>Добавить продукт</button>
+                                </div>
                             </li>)
                         })}
                     </ul>
-                    <button onClick={showMain}>обратно</button>
+                    <ul>{
+                        props.dishUser?.map((el) => {
+                            return (
+                                <li key={el.id}>
+                                    <div className="product-element">
+                                        <div className="product-info">
+                                            <p className="title-product">{el.title}</p>
+                                            <p>калории - {el.calories}</p>
+                                            <button className="button-delete" onClick={() => deleteDishElement(el.id)}>х</button>
+                                        </div>
+                                        <div className="product-pfc">
+                                            <p>белки - {el.proteins}</p>
+                                            <p>жиры - {el.fats}</p>
+                                            <p>углеводы - {el.carbohydrates}</p>
+                                        </div>
+                                    </div>
+                                </li>)
+                        })}
+                    </ul>
+
+            <div className="main_button">
+                <div className="button-1">
+                    <button className="button-product" onClick={showProducts}>Добавить продукты</button>
                 </div>
-            ) : ('')}
+                <div className="button-2">
+                    <button className="button-product" onClick={showDish}>Добавить блюда</button>
+                </div>
 
+            </div>
         </div>
- 
-        </>
-    );
-
+    )
 }
 
 export default TypeOfMeal;
