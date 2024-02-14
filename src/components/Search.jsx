@@ -10,40 +10,39 @@ const Search = function (props) {
 
     function addProductElement(id) {
         props.products.filter((item) => {
-            if (id == item.idProduct) {
+            if (id == item.id) {
                 props.productsUser.push(item);
+                localStorage.setItem(`${props.local}`, JSON.stringify(props.productsUser));
             }
         })
         props.setProductsUser(props.productsUser)
     }
-
-    return (<>
-        <div id="search" >
-            {/* <Input title='поиск' /> */}
+    
+    return (
+        <div  id="search" >
+            <button className="previous" onClick={showMain}>&#129044;</button>
             <ul>
                 {props.products?.map((item) => {
                     return (
-
-                            <li key={item.idProduct}>
-                            <div className="product" >
-                                <p>{item.title}</p>
-                                <div className="the_nutritional_value">
-                                    <p>белки - {item.proteins}</p>
-                                    <p>жиры - {item.fats}</p>
-                                    <p>углеводы - {item.carbohydrates}</p>
+                    <div className="product-element">
+                            <div className="product-info">
+                                <li key={item.id}>
+                                    <p className="title-product">{item.title}</p>
                                     <p>калории - {item.calories}</p>
-                                </div>
-
-                                <button onClick={() => addProductElement(item.idProduct)}>Добавить продукт</button>
-                                 </div>
-                            </li>
-
-                    )
+                                    <button className="button-product" onClick={() => addProductElement(item.id)}>Добавить</button>
+                                </li>
+                            </div>
+                            <div className="product-pfc">
+                                <p>белки - {item.proteins}</p>
+                                <p>жиры - {item.fats}</p>
+                                <p>углеводы - {item.carbohydrates}</p>
+                            </div>                    
+                    </div>)
                 })}
-            </ul>
-            <button onClick={showMain}>обратно</button>
+
+
+            </ul >
         </div>
-    </>
 
     );
 }

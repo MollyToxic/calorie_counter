@@ -11,11 +11,11 @@ import { ResponsiveBar } from '@nivo/bar'
                 'ужин'
             ]}
             indexBy="дни недели"
-            margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
+            margin={{ top: 50, right: 130, bottom: 110, left: 60 }}
             padding={0.3}
             valueScale={{ type: 'linear' }}
             indexScale={{ type: 'band', round: true }}
-            colors={{ scheme: 'nivo' }}
+            colors={{ scheme: 'purple_orange' }}
             defs={[
                 {
                     id: 'dots',
@@ -76,7 +76,7 @@ import { ResponsiveBar } from '@nivo/bar'
                 tickRotation: 0,
                 legend: 'употреблено калорий',
                 legendPosition: 'middle',
-                legendOffset: -40,
+                legendOffset: -50,
                 truncateTickAt: 0
             }}
             labelSkipWidth={12}

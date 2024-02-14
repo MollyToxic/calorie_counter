@@ -4,12 +4,10 @@ function Input(props) {
   function onInputChange(event) {
     props.onChange(event.target.value)
   }
-  function inputReset() {
-    props.onChange('')
-  }
+
   return (
-  <div className="container_input">
-    <label className="form_title">
+  <div className="input-box">
+    <label>
       {props.title}
     </label>       
     <input autoFocus
@@ -19,12 +17,7 @@ function Input(props) {
       min={props.min}
       max={props.max}
       value={props.inputValue}
-      onChange={onInputChange}>
-    </input>
-      <div>    
-        <button onClick={inputReset} className=" input_btn">X</button> 
-      </div>
-
+      onChange={onInputChange}/>
     </div>
   );
 };
