@@ -11,11 +11,36 @@ const Search = function (props) {
     function addProductElement(id) {
         props.products.filter((item) => {
             if (id == item.id) {
-                props.productsUser.push(item);
-                localStorage.setItem(`${props.local}`, JSON.stringify(props.productsUser));
-            }
-        })
-        props.setProductsUser(props.productsUser)
+                //проверка на дубликаты
+                let isInArray = false;
+                props.productsUser.forEach((element) => {
+                    if (element.id == item.id) {
+                        isInArray = true;
+                        element.grams += 100;
+                        let count = element.grams /100;
+
+                        element.calories = Math.round(item.calories * count);
+                        element.carbohydrates = Math.round(item.carbohydrates * count);
+                        element.fats = Math.round(item.fats *count);
+                        element.proteins = Math.round(item.proteins * count);
+                    }
+                })
+                if (!isInArray) {
+                    props.setProductsUser([
+                        ...props.productsUser,
+                        {
+                            calories: item.calories,
+                            carbohydrates: item.carbohydrates,
+                            fats: item.fats,
+                            grams: item.grams,
+                            id: item.id,
+                            proteins: item.proteins,
+                            title: item.title,
+                        },
+                    ]);
+                }
+            }})
+        // localStorage.setItem(`${props.local}`, JSON.stringify(props.productsUser));
     }
 
     return (
@@ -29,6 +54,7 @@ const Search = function (props) {
                                 <div className="product-info">
                                     <p className="title-product">{item.title}</p>
                                     <p>калории - {item.calories}</p>
+                                    <p>граммы - {item.grams}</p>
                                     <button className="button-product" onClick={() => addProductElement(item.id)}>Добавить</button>
                                 </div>
                                 <div className="product-pfc">
