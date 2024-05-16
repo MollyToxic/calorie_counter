@@ -17,27 +17,27 @@ const Search = function (props) {
         })
         props.setProductsUser(props.productsUser)
     }
-    
+
     return (
-        <div  id="search" >
+        <div id="search" >
             <button className="previous" onClick={showMain}>&#129044;</button>
             <ul>
                 {props.products?.map((item) => {
                     return (
-                    <div className="product-element">
-                            <div className="product-info">
-                                <li key={item.id}>
+                        <li key={item.id}>
+                            <div className="product-element">
+                                <div className="product-info">
                                     <p className="title-product">{item.title}</p>
                                     <p>калории - {item.calories}</p>
                                     <button className="button-product" onClick={() => addProductElement(item.id)}>Добавить</button>
-                                </li>
+                                </div>
+                                <div className="product-pfc">
+                                    <p>белки - {item.proteins}</p>
+                                    <p>жиры - {item.fats}</p>
+                                    <p>углеводы - {item.carbohydrates}</p>
+                                </div>
                             </div>
-                            <div className="product-pfc">
-                                <p>белки - {item.proteins}</p>
-                                <p>жиры - {item.fats}</p>
-                                <p>углеводы - {item.carbohydrates}</p>
-                            </div>                    
-                    </div>)
+                        </li>)
                 })}
 
 
