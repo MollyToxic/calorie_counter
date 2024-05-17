@@ -1,6 +1,8 @@
 import React from "react";
 
 import "../styles/App.css";
+import Button from "./Button";
+import { Link } from "react-router-dom";
 
 const Search = function (props) {
 
@@ -11,33 +13,82 @@ const Search = function (props) {
     function addProductElement(id) {
         props.products.filter((item) => {
             if (id == item.id) {
-                props.productsUser.push(item);
-                localStorage.setItem(`${props.local}`, JSON.stringify(props.productsUser));
+                //проверка на дубликаты
+                let isInArray = false;
+                // console.log(props.productsUser.length==0);
+                if (props.productsUser.length==0) {
+                    props.productsUser.push(item);
+                    //массив мутирует?
+                    // props.setProductsUser([
+                    //     {
+                    //         calories: item.calories,
+                    //         carbohydrates: item.carbohydrates,
+                    //         fats: item.fats,
+                    //         grams: item.grams,
+                    //         id: item.id,
+                    //         proteins: item.proteins,
+                    //         title: item.title,
+                    //     },
+                    // ]);
+                } else {
+                    props.productsUser.forEach((element) => {
+                        if (element.id == item.id) {
+                            isInArray = true;
+                            element.grams += 100;
+                            let count = element.grams / 100;
+
+                            element.calories = Math.round(item.calories * count);
+                            element.carbohydrates = Math.round(item.carbohydrates * count);
+                            element.fats = Math.round(item.fats * count);
+                            element.proteins = Math.round(item.proteins * count);
+                        }
+                    })
+                    if (!isInArray) {
+                        props.productsUser.push(item);
+                        // массив мутирует?
+                        // props.setProductsUser([
+                        //     ...props.productsUser,
+                        //     {
+                        //         calories: item.calories,
+                        //         carbohydrates: item.carbohydrates,
+                        //         fats: item.fats,
+                        //         grams: item.grams,
+                        //         id: item.id,
+                        //         proteins: item.proteins,
+                        //         title: item.title,
+                        //     },
+                        // ]);
+                    }
+                }
+
             }
+   
         })
-        props.setProductsUser(props.productsUser)
+        localStorage.setItem(`${props.local}`, JSON.stringify(props.productsUser));
+
     }
-    
+
     return (
-        <div  id="search" >
+        <div id="search" >
             <button className="previous" onClick={showMain}>&#129044;</button>
             <ul>
                 {props.products?.map((item) => {
                     return (
-                    <div className="product-element">
-                            <div className="product-info">
-                                <li key={item.id}>
+                        <li key={item.id}>
+                            <div className="product-element">
+                                <div className="product-info">
                                     <p className="title-product">{item.title}</p>
                                     <p>калории - {item.calories}</p>
+                                    <p>граммы - {item.grams}</p>
                                     <button className="button-product" onClick={() => addProductElement(item.id)}>Добавить</button>
-                                </li>
+                                </div>
+                                <div className="product-pfc">
+                                    <p>белки - {item.proteins}</p>
+                                    <p>жиры - {item.fats}</p>
+                                    <p>углеводы - {item.carbohydrates}</p>
+                                </div>
                             </div>
-                            <div className="product-pfc">
-                                <p>белки - {item.proteins}</p>
-                                <p>жиры - {item.fats}</p>
-                                <p>углеводы - {item.carbohydrates}</p>
-                            </div>                    
-                    </div>)
+                        </li>)
                 })}
 
 
