@@ -1,6 +1,8 @@
 import React from "react";
 
 import "../styles/App.css";
+import Button from "./Button";
+import { Link } from "react-router-dom";
 
 const Search = function (props) {
 
@@ -13,34 +15,57 @@ const Search = function (props) {
             if (id == item.id) {
                 //проверка на дубликаты
                 let isInArray = false;
-                props.productsUser.forEach((element) => {
-                    if (element.id == item.id) {
-                        isInArray = true;
-                        element.grams += 100;
-                        let count = element.grams /100;
+                // console.log(props.productsUser.length==0);
+                if (props.productsUser.length==0) {
+                    props.productsUser.push(item);
+                    //массив мутирует?
+                    // props.setProductsUser([
+                    //     {
+                    //         calories: item.calories,
+                    //         carbohydrates: item.carbohydrates,
+                    //         fats: item.fats,
+                    //         grams: item.grams,
+                    //         id: item.id,
+                    //         proteins: item.proteins,
+                    //         title: item.title,
+                    //     },
+                    // ]);
+                } else {
+                    props.productsUser.forEach((element) => {
+                        if (element.id == item.id) {
+                            isInArray = true;
+                            element.grams += 100;
+                            let count = element.grams / 100;
 
-                        element.calories = Math.round(item.calories * count);
-                        element.carbohydrates = Math.round(item.carbohydrates * count);
-                        element.fats = Math.round(item.fats *count);
-                        element.proteins = Math.round(item.proteins * count);
+                            element.calories = Math.round(item.calories * count);
+                            element.carbohydrates = Math.round(item.carbohydrates * count);
+                            element.fats = Math.round(item.fats * count);
+                            element.proteins = Math.round(item.proteins * count);
+                        }
+                    })
+                    if (!isInArray) {
+                        props.productsUser.push(item);
+                        // массив мутирует?
+                        // props.setProductsUser([
+                        //     ...props.productsUser,
+                        //     {
+                        //         calories: item.calories,
+                        //         carbohydrates: item.carbohydrates,
+                        //         fats: item.fats,
+                        //         grams: item.grams,
+                        //         id: item.id,
+                        //         proteins: item.proteins,
+                        //         title: item.title,
+                        //     },
+                        // ]);
                     }
-                })
-                if (!isInArray) {
-                    props.setProductsUser([
-                        ...props.productsUser,
-                        {
-                            calories: item.calories,
-                            carbohydrates: item.carbohydrates,
-                            fats: item.fats,
-                            grams: item.grams,
-                            id: item.id,
-                            proteins: item.proteins,
-                            title: item.title,
-                        },
-                    ]);
                 }
-            }})
-        // localStorage.setItem(`${props.local}`, JSON.stringify(props.productsUser));
+
+            }
+   
+        })
+        localStorage.setItem(`${props.local}`, JSON.stringify(props.productsUser));
+
     }
 
     return (

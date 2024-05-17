@@ -4,11 +4,30 @@ import TypeOfMeal from "../components/TypeOfMeal";
 import Search from "../components/Search";
 
 const Food = function () {
+
     const [products, setProducts] = useState([]);
-    const [productsUserBreakfast, setProductsUserBreakfast] = useState([]);
-    const [productsUserLunch, setProductsUserLunch] = useState([]);
-    const [productsUserDinner, setProductsUserDinner] = useState([]);
-    const [productsUserSnack, setProductsUserSnack] = useState([]);
+
+    const [productsUserBreakfast, setProductsUserBreakfast] = useState(()=>{
+        const saved = localStorage.getItem("product-user-breakfact");
+        const initialValue = JSON.parse(saved);
+        return initialValue || [];
+    });
+    const [productsUserLunch, setProductsUserLunch] = useState(() => {
+        const saved = localStorage.getItem("product-user-lunch");
+        const initialValue = JSON.parse(saved);
+        return initialValue || [];
+    });
+    const [productsUserDinner, setProductsUserDinner] = useState(() => {
+        const saved = localStorage.getItem("product-user-dinner");
+        const initialValue = JSON.parse(saved);
+        return initialValue || [];
+    });
+    const [productsUserSnack, setProductsUserSnack] = useState(() => {
+        const saved = localStorage.getItem("product-user-snack");
+        const initialValue = JSON.parse(saved);
+        return initialValue || [];
+    });
+
     const [mode, setMode] = useState("main");
 
     useEffect(() => {
@@ -62,6 +81,7 @@ const Food = function () {
                                         <TypeOfMeal title='обед'
                                             products={products}
                                             productsUser={productsUserLunch} setProductsUser={setProductsUserLunch}
+                                            
                                             setMode={setMode} choice="searchProductL" local='product-user-lunch'
 
                                         />
